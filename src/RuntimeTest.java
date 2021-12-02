@@ -6,16 +6,7 @@
 import java.util.Random;
 
 public class RuntimeTest {
-    static public int [] arrayR1 = new int[100]; // random
-    static public int [] arrayR2 = new int[10000];
-    static public int [] arrayR3 = new int[1000000];
-    static public int [] arrayR4 = new int[10000000];
-
-    static public int [] arrayD = new int[10000000]; // descending
-
-    static public int [] arrayRUNSh = new int[10000000]; // consequtive sequence, high presortedness
-    static public int [] arrayRUNSm = new int[10000000]; // medium presortedness
-    static public int [] arrayRUNSl = new int[10000000]; // low presortedness
+    static int[] array;
 
     static NaturalMergeSort nms = new NaturalMergeSort();
     static MergeSort ms = new MergeSort();
@@ -81,115 +72,105 @@ public class RuntimeTest {
         print(RUNSArray(a, 5));
         print(RUNSArray(a, 9));*/
 
-        /** fill arrays */
-        //random
-        arrayR1 = randomArray(100);
-        arrayR2 = randomArray(10000);
-        arrayR3 = randomArray(10000000);
-        arrayR4 = randomArray(500000000);
-
-        //descending
-        arrayD = descendingArray(500000000);
-
-        //Runs, presortedness high
-        arrayRUNSh = RUNSArray(500000000, 50000000); // 10% not sorted
-        arrayRUNSm = RUNSArray(500000000, 250000000); // 50% not sorted
-        arrayRUNSl = RUNSArray(500000000, 400000000); // 80% not sorted
-
-        //long end = System.currentTimeMillis()-start;
-        //System.out.println(end);
-
         /** Tests */
         long start;
         long end;
 
-        int [] copy = arrayR1;
+        array = randomArray(100);
+        int [] copy = array;
         start = System.currentTimeMillis();
-        ms.msort(arrayR1);
+        ms.msort(array);
         end = System.currentTimeMillis() - start;
         System.out.println("MergeSort, random array, 100: " + end + "ms");
 
         start = System.currentTimeMillis();
         nms.nmsort(copy);
         end = System.currentTimeMillis() - start;
-        System.out.println("Natural MergeSort: random array, 100" + end + "ms");
+        System.out.println("Natural MergeSort: random array, 100: " + end + "ms");
 
-        copy = arrayR2;
+        array = randomArray(10000);
+        copy = array;
         start = System.currentTimeMillis();
-        ms.msort(arrayR2);
+        ms.msort(array);
         end = System.currentTimeMillis() - start;
         System.out.println("MergeSort, random array, 10.000: " + end + "ms");
 
         start = System.currentTimeMillis();
         nms.nmsort(copy);
         end = System.currentTimeMillis() - start;
-        System.out.println("Natural MergeSort: random array, 10.000" + end + "ms");
+        System.out.println("Natural MergeSort: random array, 10.000: " + end + "ms");
 
-        copy = arrayR3;
+        array = randomArray(1000000);
+        copy = array;
         start = System.currentTimeMillis();
-        ms.msort(arrayR3);
+        ms.msort(array);
         end = System.currentTimeMillis() - start;
         System.out.println("MergeSort, random array, 1.000.000: " + end + "ms");
 
         start = System.currentTimeMillis();
         nms.nmsort(copy);
         end = System.currentTimeMillis() - start;
-        System.out.println("Natural MergeSort: random array, 1.000.000" + end + "ms");
+        System.out.println("Natural MergeSort: random array, 1.000.000: " + end + "ms");
 
-        copy = arrayR4;
+        array = randomArray(50000000);
+        copy = array;
         start = System.currentTimeMillis();
-        ms.msort(arrayR4);
+        ms.msort(array);
         end = System.currentTimeMillis() - start;
-        System.out.println("MergeSort, random array, 10.000.000: " + end + "ms");
-
-        start = System.currentTimeMillis();
-        nms.nmsort(copy);
-        end = System.currentTimeMillis() - start;
-        System.out.println("Natural MergeSort: random array, 10.000.000" + end + "ms");
-
-        copy = arrayD;
-        start = System.currentTimeMillis();
-        ms.msort(arrayD);
-        end = System.currentTimeMillis() - start;
-        System.out.println("MergeSort, descending array, 10.000.000: " + end + "ms");
+        System.out.println("MergeSort, random array, 50.000.000: " + end + "ms");
 
         start = System.currentTimeMillis();
         nms.nmsort(copy);
         end = System.currentTimeMillis() - start;
-        System.out.println("Natural MergeSort: descending array, 10.000.000" + end + "ms");
+        System.out.println("Natural MergeSort: random array, 50.000.000: " + end + "ms");
 
-        copy = arrayRUNSh;
+        array = descendingArray(50000000);
+        copy = array;
         start = System.currentTimeMillis();
-        ms.msort(arrayRUNSh);
+        ms.msort(array);
         end = System.currentTimeMillis() - start;
-        System.out.println("MergeSort, RUNS array, high presortedness, 10.000.000: " + end + "ms");
-
-        start = System.currentTimeMillis();
-        nms.nmsort(copy);
-        end = System.currentTimeMillis() - start;
-        System.out.println("Natural MergeSort: RUNS array, high presortedness, 10.000.000" + end + "ms");
-
-        copy = arrayRUNSm;
-        start = System.currentTimeMillis();
-        ms.msort(arrayRUNSm);
-        end = System.currentTimeMillis() - start;
-        System.out.println("MergeSort, RUNS array, medium presortendess, 10.000.000: " + end + "ms");
+        System.out.println("MergeSort, descending array, 50.000.000: " + end + "ms");
 
         start = System.currentTimeMillis();
         nms.nmsort(copy);
         end = System.currentTimeMillis() - start;
-        System.out.println("Natural MergeSort: RUNS array, medium presortedness, 10.000.000" + end + "ms");
+        System.out.println("Natural MergeSort: descending array, 50.000.000: " + end + "ms");
 
-        copy = arrayRUNSl;
+        array = RUNSArray(50000000, 5000000); // ~10% not sorted
+        copy = array;
         start = System.currentTimeMillis();
-        ms.msort(arrayRUNSl);
+        ms.msort(array);
         end = System.currentTimeMillis() - start;
-        System.out.println("MergeSort, RUNS array, low presortendess, 10.000.000: " + end + "ms");
+        System.out.println("MergeSort, RUNS array, high presortedness, 50.000.000: " + end + "ms");
 
         start = System.currentTimeMillis();
         nms.nmsort(copy);
         end = System.currentTimeMillis() - start;
-        System.out.println("Natural MergeSort: RUNS array, low presortedness, 10.000.000" + end + "ms");
+        System.out.println("Natural MergeSort: RUNS array, high presortedness, 50.000.000: " + end + "ms");
+
+        array = RUNSArray(50000000, 25000000); // ~50% not sorted
+        copy = array;
+        start = System.currentTimeMillis();
+        ms.msort(array);
+        end = System.currentTimeMillis() - start;
+        System.out.println("MergeSort, RUNS array, medium presortendess, 50.000.000: " + end + "ms");
+
+        start = System.currentTimeMillis();
+        nms.nmsort(copy);
+        end = System.currentTimeMillis() - start;
+        System.out.println("Natural MergeSort: RUNS array, medium presortedness, 50.000.000: " + end + "ms");
+
+        array = RUNSArray(50000000, 40000000); // ~80% not sorted
+        copy = array;
+        start = System.currentTimeMillis();
+        ms.msort(array);
+        end = System.currentTimeMillis() - start;
+        System.out.println("MergeSort, RUNS array, low presortendess, 50.000.000: " + end + "ms");
+
+        start = System.currentTimeMillis();
+        nms.nmsort(copy);
+        end = System.currentTimeMillis() - start;
+        System.out.println("Natural MergeSort: RUNS array, low presortedness, 50.000.000: " + end + "ms");
 
 
     }
