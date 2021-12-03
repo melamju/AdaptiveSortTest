@@ -31,6 +31,14 @@ public class RuntimeTest {
         return a;
     }
 
+    static public int [] ascendingArray(int length){
+        int [] a = new int[length];
+        for (int i = 0; i < length; i++){
+            a[i] = i;
+        }
+        return a;
+    }
+
     static public int [] RUNSArray(int length, int inv){ //inv = number of inversions to create sequences of ascending numbers. High inv = low presortedness.
         int [] a = new int[length];
         for (int i = 0; i < length; i++){ // create ascending array
@@ -135,6 +143,18 @@ public class RuntimeTest {
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, descending array, 50,000,000: ", end + "ms\n");
 
+        array = ascendingArray(50000000);
+        copy = array;
+        start = System.currentTimeMillis();
+        ms.msort(array);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s", "MergeSort, sorted array, 50,000,000: ", end + "ms\n");
+
+        start = System.currentTimeMillis();
+        nms.nmsort(copy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s", "Natural MergeSort, sorted array, 50,000,000: ", end + "ms\n");
+
         array = RUNSArray(50000000, 5000000); // ~90% ascending sequences
         copy = array;
         start = System.currentTimeMillis();
@@ -170,7 +190,6 @@ public class RuntimeTest {
         nms.nmsort(copy);
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, RUNS array, low presortedness, 50,000,000: ", end + "ms\n");
-
 
     }
 }
