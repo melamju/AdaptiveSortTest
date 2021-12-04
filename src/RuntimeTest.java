@@ -101,7 +101,7 @@ public class RuntimeTest {
         start = System.currentTimeMillis();
         sort(timcopy);
         end = System.currentTimeMillis() - start;
-        System.out.format("%70s%10s","TimSort, random array, 100: ", end + "ms\n");
+        System.out.format("%70s%11s","TimSort, random array, 100: ", end + "ms\n\n");
 
         array = randomArray(10000);
         copy = array;
@@ -119,7 +119,7 @@ public class RuntimeTest {
         start = System.currentTimeMillis();
         sort(timcopy);
         end = System.currentTimeMillis() - start;
-        System.out.format("%70s%10s","TimSort, random array, 10,000: ", end + "ms\n");
+        System.out.format("%70s%11s","TimSort, random array, 10,000: ", end + "ms\n\n");
 
         array = randomArray(1000000);
         copy = array;
@@ -137,7 +137,7 @@ public class RuntimeTest {
         start = System.currentTimeMillis();
         sort(timcopy);
         end = System.currentTimeMillis() - start;
-        System.out.format("%70s%10s","TimSort, random array, 1,000,000: ", end + "ms\n");
+        System.out.format("%70s%11s","TimSort, random array, 1,000,000: ", end + "ms\n\n");
 
         array = randomArray(50000000);
         copy = array;
@@ -155,7 +155,7 @@ public class RuntimeTest {
         start = System.currentTimeMillis();
         sort(timcopy);
         end = System.currentTimeMillis() - start;
-        System.out.format("%70s%10s","TimSort, random array, 50,000,000: ", end + "ms\n");
+        System.out.format("%70s%11s","TimSort, random array, 50,000,000: ", end + "ms\n\n");
 
         array = descendingArray(50000000);
         copy = array;
@@ -173,7 +173,7 @@ public class RuntimeTest {
         start = System.currentTimeMillis();
         sort(timcopy);
         end = System.currentTimeMillis() - start;
-        System.out.format("%70s%10s","TimSort, descending array, 50,000,000: ", end + "ms\n");
+        System.out.format("%70s%11s","TimSort, descending array, 50,000,000: ", end + "ms\n\n");
 
         array = ascendingArray(50000000);
         copy = array;
@@ -191,7 +191,7 @@ public class RuntimeTest {
         start = System.currentTimeMillis();
         sort(timcopy);
         end = System.currentTimeMillis() - start;
-        System.out.format("%70s%10s","TimSort, sorted array, 50,000,000: ", end + "ms\n");
+        System.out.format("%70s%11s","TimSort, sorted array, 50,000,000: ", end + "ms\n\n");
 
         array = RUNSArray(50000000, 5000000); // ~90% ascending sequences
         copy = array;
@@ -209,7 +209,7 @@ public class RuntimeTest {
         start = System.currentTimeMillis();
         sort(timcopy);
         end = System.currentTimeMillis() - start;
-        System.out.format("%70s%10s","TimSort, RUNS array, high presortedness, 50,000,000: ", end + "ms\n");
+        System.out.format("%70s%11s","TimSort, RUNS array, high presortedness, 50,000,000: ", end + "ms\n\n");
 
         array = RUNSArray(50000000, 25000000); // ~50% ascending sequences
         copy = array;
@@ -227,7 +227,7 @@ public class RuntimeTest {
         start = System.currentTimeMillis();
         sort(timcopy);
         end = System.currentTimeMillis() - start;
-        System.out.format("%70s%10s","TimSort, RUNS array, medium presortedness, 50,000,000: ", end + "ms\n");
+        System.out.format("%70s%11s","TimSort, RUNS array, medium presortedness, 50,000,000: ", end + "ms\n\n");
 
         array = RUNSArray(50000000, 40000000); // ~20% ascending sequences
         copy = array;
@@ -245,7 +245,7 @@ public class RuntimeTest {
         start = System.currentTimeMillis();
         sort(timcopy);
         end = System.currentTimeMillis() - start;
-        System.out.format("%70s%10s","TimSort, RUNS array, low presortedness, 50,000,000: ", end + "ms\n");
+        System.out.format("%70s%11s","TimSort, RUNS array, low presortedness, 50,000,000: ", end + "ms\n\n");
 
     }
 }
