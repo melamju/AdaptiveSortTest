@@ -5,6 +5,8 @@
 
 import java.util.Random;
 
+import static java.util.Arrays.sort;
+
 public class RuntimeTest {
     static int[] array;
 
@@ -85,6 +87,7 @@ public class RuntimeTest {
 
         array = randomArray(100);
         int [] copy = array;
+        int [] timcopy = array;
         start = System.currentTimeMillis();
         ms.msort(array);
         end = System.currentTimeMillis() - start;
@@ -95,8 +98,14 @@ public class RuntimeTest {
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s","Natural MergeSort, random array, 100: ", end + "ms\n");
 
+        start = System.currentTimeMillis();
+        sort(timcopy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s","TimSort, random array, 100: ", end + "ms\n");
+
         array = randomArray(10000);
         copy = array;
+        timcopy = array;
         start = System.currentTimeMillis();
         ms.msort(array);
         end = System.currentTimeMillis() - start;
@@ -107,8 +116,14 @@ public class RuntimeTest {
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, random array, 10,000: ", end + "ms\n");
 
+        start = System.currentTimeMillis();
+        sort(timcopy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s","TimSort, random array, 10,000: ", end + "ms\n");
+
         array = randomArray(1000000);
         copy = array;
+        timcopy = array;
         start = System.currentTimeMillis();
         ms.msort(array);
         end = System.currentTimeMillis() - start;
@@ -119,8 +134,14 @@ public class RuntimeTest {
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, random array, 1,000,000: ", end + "ms\n");
 
+        start = System.currentTimeMillis();
+        sort(timcopy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s","TimSort, random array, 1,000,000: ", end + "ms\n");
+
         array = randomArray(50000000);
         copy = array;
+        timcopy = array;
         start = System.currentTimeMillis();
         ms.msort(array);
         end = System.currentTimeMillis() - start;
@@ -131,8 +152,14 @@ public class RuntimeTest {
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, random array, 50,000,000: ", end + "ms\n");
 
+        start = System.currentTimeMillis();
+        sort(timcopy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s","TimSort, random array, 50,000,000: ", end + "ms\n");
+
         array = descendingArray(50000000);
         copy = array;
+        timcopy = array;
         start = System.currentTimeMillis();
         ms.msort(array);
         end = System.currentTimeMillis() - start;
@@ -143,8 +170,14 @@ public class RuntimeTest {
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, descending array, 50,000,000: ", end + "ms\n");
 
+        start = System.currentTimeMillis();
+        sort(timcopy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s","TimSort, descending array, 50,000,000: ", end + "ms\n");
+
         array = ascendingArray(50000000);
         copy = array;
+        timcopy = array;
         start = System.currentTimeMillis();
         ms.msort(array);
         end = System.currentTimeMillis() - start;
@@ -155,8 +188,14 @@ public class RuntimeTest {
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, sorted array, 50,000,000: ", end + "ms\n");
 
+        start = System.currentTimeMillis();
+        sort(timcopy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s","TimSort, sorted array, 50,000,000: ", end + "ms\n");
+
         array = RUNSArray(50000000, 5000000); // ~90% ascending sequences
         copy = array;
+        timcopy = array;
         start = System.currentTimeMillis();
         ms.msort(array);
         end = System.currentTimeMillis() - start;
@@ -167,8 +206,14 @@ public class RuntimeTest {
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, RUNS array, high presortedness, 50,000,000: ", end + "ms\n");
 
+        start = System.currentTimeMillis();
+        sort(timcopy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s","TimSort, RUNS array, high presortedness, 50,000,000: ", end + "ms\n");
+
         array = RUNSArray(50000000, 25000000); // ~50% ascending sequences
         copy = array;
+        timcopy = array;
         start = System.currentTimeMillis();
         ms.msort(array);
         end = System.currentTimeMillis() - start;
@@ -179,8 +224,14 @@ public class RuntimeTest {
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, RUNS array, medium presortedness, 50,000,000: ", end + "ms\n");
 
+        start = System.currentTimeMillis();
+        sort(timcopy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s","TimSort, RUNS array, medium presortedness, 50,000,000: ", end + "ms\n");
+
         array = RUNSArray(50000000, 40000000); // ~20% ascending sequences
         copy = array;
+        timcopy = array;
         start = System.currentTimeMillis();
         ms.msort(array);
         end = System.currentTimeMillis() - start;
@@ -190,6 +241,11 @@ public class RuntimeTest {
         nms.nmsort(copy);
         end = System.currentTimeMillis() - start;
         System.out.format("%70s%10s", "Natural MergeSort, RUNS array, low presortedness, 50,000,000: ", end + "ms\n");
+
+        start = System.currentTimeMillis();
+        sort(timcopy);
+        end = System.currentTimeMillis() - start;
+        System.out.format("%70s%10s","TimSort, RUNS array, low presortedness, 50,000,000: ", end + "ms\n");
 
     }
 }
