@@ -2,7 +2,7 @@
 
 PA11 - Adaptive Sorting Algorithms  
 
-Source code of the runtime test used in table 1. and table 2.  
+Source code of the runtime tests shown in table 1. and table 2.  
 
 Algorithms:  
 - MergeSort from HappyCoders.eu,
