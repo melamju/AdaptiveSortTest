@@ -3,7 +3,8 @@
 PA11 - Adaptive Sorting Algorithms  
 
 Source code of the runtime test used in table 1. and table 2.  
-Algoritms:  
+
+Algorithms:  
 - MergeSort from HappyCoders.eu,
 https://www.happycoders.eu/de/algorithmen/mergesort/
 last access: 2021-11-22  
